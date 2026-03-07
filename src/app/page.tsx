@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Leaf, ShieldCheck, Star, ShoppingCart, Heart, Award, Flower, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export default function Home() {
@@ -51,31 +52,35 @@ export default function Home() {
 
   return (
     <main>
-      {/* Refined Navbar */}
+      {/* Laptop Optimized Navbar */}
       <header className="navbar">
         <div className="nav-container">
           <div className="logo-container">
-            <div className="logo-brand">
-              <Image src="/logo.png" alt="GSF Logo" width={45} height={45} className="logo-img" />
-              <div className="logo-text">
-                <h3>GOLDEN STATE FOOD, LLC.</h3>
-                <p>HEALTHY FOOD - BETTER QUALITY</p>
-              </div>
-            </div>
+            <Link href="/" className="logo-brand">
+              <Image src="/logo.png" alt="GSF Logo" width={50} height={50} className="logo-img" />
+            </Link>
           </div>
           <div className="nav-links-wrapper">
             <nav className="nav-links">
-              <a href="#hero" className="active">Home</a>
-              <a href="#story">About</a>
-              <a href="#products">Products</a>
-              <a href="#footer">Contact</a>
+              <Link href="/" className="active">Home</Link>
+              <Link href="#story">About</Link>
+              <Link href="#products-showcase">Products</Link>
+              <Link href="#footer">Contact</Link>
             </nav>
           </div>
+          <div className="nav-actions-placeholder"></div>
         </div>
       </header>
 
       {/* Modernized Hero Section */}
       <section id="hero" className="hero">
+        {/* Mobile Top Logo */}
+        <div className="mobile-top-logo">
+          <Link href="/">
+            <Image src="/logo.png" alt="GSF Logo" width={60} height={60} priority />
+          </Link>
+        </div>
+
         {/* Floating Leafs */}
         <div className="leaf" style={{ top: '15%', left: '10%', width: '60px' }}>
           <Image src="/leaf-removebg-preview.png" alt="Leaf" width={60} height={60} />
@@ -109,18 +114,14 @@ export default function Home() {
           <p className="subtitle">{slides[currentSlide].subtitle}</p>
           <h1 key={currentSlide}>{slides[currentSlide].title}</h1>
           <p className="desc">{slides[currentSlide].desc}</p>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <div className="hero-actions">
             <button className="btn-primary">ORDER NOW</button>
-            <div className="carousel-dots" style={{ display: 'flex', gap: '8px', marginLeft: '1rem' }}>
+            <div className="carousel-dots">
               {slides.map((_, idx) => (
                 <div
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  style={{
-                    width: '12px', height: '12px', borderRadius: '50%', cursor: 'pointer',
-                    background: currentSlide === idx ? 'var(--theme)' : 'rgba(255,255,255,0.3)',
-                    transition: 'all 0.3s ease'
-                  }}
+                  className={`dot ${currentSlide === idx ? 'active' : ''}`}
                 />
               ))}
             </div>
@@ -214,25 +215,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Varieties Section */}
-      <section id="varieties" className="varieties-section container">
-        <h2 className="section-title text-center">Our Signature Dates</h2>
-        <div className="varieties-grid">
-          {['Ajwa', 'Mabroom', 'Medjool', 'Sukkari', 'Segai', 'Khalas', 'Zahidi', 'Bam Dates'].map((variety) => (
-            <div key={variety} className="variety-card">
-              <div className="variety-border"></div>
-              <div className="variety-img-wrapper">
-                <Image src="/dates_closeup.png" alt={`${variety} Dates`} width={200} height={200} className="variety-img" />
-              </div>
-              <h3>{variety}</h3>
-              <p>Premium Quality</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Modern Collage Product Showcase */}
-      <section id="products" className="product-showcase container">
+      <section id="products-showcase" className="product-showcase container">
         <h2 className="section-title">Specializing in <br /><span>PREMIUM SELECTION</span></h2>
 
         <div className="collage-grid">

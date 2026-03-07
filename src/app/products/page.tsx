@@ -21,20 +21,13 @@ export default function ProductsPage() {
             {/* Refined Navbar for inner pages */}
             <header className="navbar">
                 <div className="nav-container">
-                    <div className="logo-container">
-                        <Link href="/" style={{ textDecoration: 'none' }}>
-                            <div className="logo-brand">
-                                <Image src="/logo.png" alt="GSF Logo" width={45} height={45} className="logo-img" />
-                                <div className="logo-text">
-                                    <h3>GOLDEN STATE FOOD, LLC.</h3>
-                                    <p>HEALTHY FOOD - BETTER QUALITY</p>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-
                     <div className="nav-links-wrapper">
                         <nav className="nav-links">
+                            <Link href="/" className="desktop-logo-link">
+                                <div className="nav-logo">
+                                    <Image src="/logo.png" alt="GSF Logo" width={50} height={50} className="logo-img" />
+                                </div>
+                            </Link>
                             <Link href="/" className="nav-link">Home</Link>
                             <Link href="/#story" className="nav-link">About</Link>
                             <Link href="/products" className="nav-link active">Products</Link>
@@ -43,6 +36,18 @@ export default function ProductsPage() {
                     </div>
                 </div>
             </header>
+
+            <div className="mobile-top-logo" style={{ position: 'fixed', top: 0, left: 0, width: '100%', background: '#3F2312', zIndex: 1001, padding: '1rem 0' }}>
+                <Link href="/">
+                    <div className="logo-brand" style={{ display: 'flex', alignItems: 'center', gap: '12px', justifyContent: 'center' }}>
+                        <Image src="/logo.png" alt="GSF Logo" width={45} height={45} className="logo-img" />
+                        <div className="logo-text">
+                            <h3 style={{ color: 'var(--theme)', margin: 0 }}>GOLDEN STATE FOOD, LLC.</h3>
+                            <p style={{ color: 'var(--text-muted)', margin: 0 }}>HEALTHY FOOD - BETTER QUALITY</p>
+                        </div>
+                    </div>
+                </Link>
+            </div>
 
             <section className="container" style={{ paddingBottom: '4rem' }}>
                 <h1 className="section-title text-center" style={{ color: 'var(--white)' }}>Our Premium Product Line</h1>
@@ -76,6 +81,6 @@ export default function ProductsPage() {
                     ))}
                 </div>
             </section>
-        </main>
+        </main >
     );
 }
