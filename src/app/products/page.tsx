@@ -17,42 +17,43 @@ export default function ProductsPage() {
     ];
 
     return (
-        <main className="products-main" style={{ paddingTop: '150px', background: 'var(--bg-dark)', minHeight: '100vh' }}>
+        <main className="products-main" style={{ paddingTop: '150px', background: 'var(--bg)', minHeight: '100vh' }}>
             {/* Refined Navbar for inner pages */}
             <header className="navbar">
                 <div className="nav-container">
+                    <div className="logo-container">
+                        <Link href="/" className="logo-brand">
+                            <Image src="/logo.png" alt="REEM Logo" width={200} height={80} className="logo-img" style={{ objectFit: 'contain' }} />
+                        </Link>
+                    </div>
                     <div className="nav-links-wrapper">
                         <nav className="nav-links">
-                            <Link href="/" className="desktop-logo-link">
-                                <div className="nav-logo">
-                                    <Image src="/logo.png" alt="GSF Logo" width={50} height={50} className="logo-img" />
-                                </div>
-                            </Link>
                             <Link href="/" className="nav-link">Home</Link>
                             <Link href="/#story" className="nav-link">About</Link>
                             <Link href="/products" className="nav-link active">Products</Link>
-                            <Link href="/#contact" className="nav-link">Contact</Link>
+                            <Link href="/contact" className="nav-link">Contact</Link>
                         </nav>
                     </div>
+                    <div className="nav-actions-placeholder"></div>
                 </div>
             </header>
 
-            <div className="mobile-top-logo" style={{ position: 'fixed', top: 0, left: 0, width: '100%', background: '#3F2312', zIndex: 1001, padding: '1rem 0' }}>
+            <div className="mobile-top-logo" style={{ position: 'fixed', top: 0, left: 0, width: '100%', background: 'var(--bg)', zIndex: 1001, padding: '1rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
                 <Link href="/">
                     <div className="logo-brand" style={{ display: 'flex', alignItems: 'center', gap: '12px', justifyContent: 'center' }}>
                         <Image src="/logo.png" alt="GSF Logo" width={45} height={45} className="logo-img" />
                         <div className="logo-text">
-                            <h3 style={{ color: 'var(--theme)', margin: 0 }}>GOLDEN STATE FOOD, LLC.</h3>
-                            <p style={{ color: 'var(--text-muted)', margin: 0 }}>HEALTHY FOOD - BETTER QUALITY</p>
+                            <h3 style={{ color: '#3b2818', margin: 0 }}>REEMDATES.INDIA</h3>
+                            <p style={{ color: '#6d5a48', margin: 0, fontSize: '0.7rem', letterSpacing: '1px' }}>QUALITY • FRESHNESS • TRUST</p>
                         </div>
                     </div>
                 </Link>
             </div>
 
             <section className="container" style={{ paddingBottom: '4rem' }}>
-                <h1 className="section-title text-center" style={{ color: 'var(--white)' }}>Our Premium Product Line</h1>
-                <p className="text-center" style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 4rem', fontSize: '1.2rem' }}>
-                    Explore our exclusive, hand-picked selection of the finest dates sourced directly from the best farms in the Middle East.
+                <h1 className="section-title text-center" style={{ color: '#3b2818', fontSize: '3rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem' }}>Our Premium Collection</h1>
+                <p className="text-center" style={{ color: '#6d5a48', maxWidth: '650px', margin: '0 auto 4rem', fontSize: '1.15rem', lineHeight: '1.8' }}>
+                    Explore our exclusive, hand-picked selection of the finest dates sourced directly from the best farms in the Middle East. Experience true luxury in every bite.
                 </p>
 
                 <div className="product-page-grid">
@@ -73,9 +74,15 @@ export default function ProductsPage() {
                                     <span className="product-price">{date.price}</span>
                                 </div>
                                 <p className="product-desc">{date.desc}</p>
-                                <button className="btn-add-cart">
-                                    <ShoppingCart size={18} /> Add to Cart
-                                </button>
+                                <a
+                                    href={`https://wa.me/918086304231?text=${encodeURIComponent(`Hello Reem Premium! I'm interested in ordering ${date.name}.`)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-add-cart"
+                                    style={{ textDecoration: 'none' }}
+                                >
+                                    <ShoppingCart size={16} /> ADD TO CART
+                                </a>
                             </div>
                         </div>
                     ))}

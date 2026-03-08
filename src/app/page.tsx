@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Leaf, ShieldCheck, Star, ShoppingCart, Heart, Award, Flower, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Leaf, ShieldCheck, Star, ShoppingCart, Heart, Award, Flower, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -57,15 +57,15 @@ export default function Home() {
         <div className="nav-container">
           <div className="logo-container">
             <Link href="/" className="logo-brand">
-              <Image src="/logo.png" alt="GSF Logo" width={50} height={50} className="logo-img" />
+              <Image src="/logo.png" alt="REEM Logo" width={200} height={80} className="logo-img" style={{ objectFit: 'contain' }} />
             </Link>
           </div>
           <div className="nav-links-wrapper">
             <nav className="nav-links">
               <Link href="/" className="active">Home</Link>
               <Link href="#story">About</Link>
-              <Link href="#products-showcase">Products</Link>
-              <Link href="#footer">Contact</Link>
+              <Link href="/products">Products</Link>
+              <Link href="/contact">Contact</Link>
             </nav>
           </div>
           <div className="nav-actions-placeholder"></div>
@@ -98,8 +98,8 @@ export default function Home() {
         {/* Sidebar */}
         <div className="side-info">
           <div className="social-icons">
-            <a href="#" className="social-icon"><Linkedin size={16} /></a>
-            <a href="#" className="social-icon"><Instagram size={16} /></a>
+            <a href="https://wa.me/918086304231" target="_blank" rel="noopener noreferrer" className="social-icon"><MessageCircle size={16} /></a>
+            <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" className="social-icon"><Instagram size={16} /></a>
             <a href="#" className="social-icon"><Facebook size={16} /></a>
           </div>
           <div className="scroll-indicator">
@@ -187,29 +187,32 @@ export default function Home() {
       <section id="story" className="story-section container">
         <div className="story-grid">
           <div className="story-image">
-            <div className="parallax-inner">
+            <div className="parallax-inner" style={{ position: 'relative', width: '100%', height: '600px', borderRadius: '15px', overflow: 'hidden' }}>
               <Image
-                src="/assets/story.png"
+                src="/photo_2026-03-06_11-04-25.jpg"
                 alt="Reem - The desert gazelle"
-                width={600}
-                height={800}
+                fill
+                style={{ objectFit: 'cover' }}
                 className="parallax"
               />
             </div>
           </div>
           <div className="story-content">
-            <h2 className="section-title">The Essence of Reem</h2>
-            <p>
-              Reem is a premium brand that brings you the finest quality dates and dry fruits inspired by the rich traditions of the Middle East.
+            <h2 className="section-title">reemdates.india</h2>
+            <p className="story-highlight" style={{ fontSize: '1.2rem', color: 'var(--theme)', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 700 }}>
+              Shopping & Retail
             </p>
             <p>
-              The name <strong>Reem</strong> comes from Arabic, meaning a beautiful desert gazelle, a symbol of purity, elegance, and natural beauty. Just like its meaning, our products represent pure taste, natural goodness, and premium quality.
+              reemdates.india are proud <strong>Importers & Distributors of Premium Dates & Dry Fruits</strong>. We bring you the finest quality dates inspired by the rich traditions of the Middle East.
             </p>
             <p>
-              At Reem, we carefully select the best dates to deliver freshness, nutrition, and authentic flavor to every home.
+              Our name comes from Arabic, meaning a beautiful desert gazelle, a symbol of purity, elegance, and natural beauty. Just like its meaning, our products represent pure taste, natural goodness, and premium quality.
             </p>
-            <p className="story-highlight" style={{ fontSize: '1.3rem', color: 'var(--theme)' }}>
-              <strong>Reem – Pure. Natural. Premium.</strong>
+            <p>
+              We carefully select the best dates to deliver freshness, nutrition, and authentic flavor to every home.
+            </p>
+            <p className="story-highlight" style={{ fontSize: '1.3rem', color: 'var(--theme)', marginTop: '2rem' }}>
+              <strong>Quality • Freshness • Trust</strong>
             </p>
           </div>
         </div>
@@ -221,9 +224,9 @@ export default function Home() {
 
         <div className="collage-grid">
           {/* Main Large Box */}
-          <div className="box box-large main-pouch">
-            <Image src="/pouch-removebg-preview.png" alt="Reem Pouch" width={400} height={500} className="pouch-img" />
-          </div>
+          <Link href="/products" className="box box-large main-pouch" style={{ cursor: 'pointer', display: 'flex' }}>
+            <Image src="/IMG_8457.JPG" alt="Reem Pouch" fill style={{ objectFit: 'cover' }} />
+          </Link>
 
           {/* Top Close-up Box */}
           <div className="box box-medium dates-texture">
@@ -231,9 +234,9 @@ export default function Home() {
           </div>
 
           {/* Right Top Angled Box */}
-          <div className="box box-medium angled-pouch">
-            <Image src="/pouch-removebg-preview.png" alt="Reem Pouch Angled" width={300} height={400} className="pouch-img-angled" />
-          </div>
+          <Link href="/products" className="box box-medium angled-pouch" style={{ cursor: 'pointer', display: 'flex' }}>
+            <Image src="/IMG_8453.JPG" alt="Reem Pouch Angled" fill style={{ objectFit: 'cover' }} />
+          </Link>
 
           {/* Middle Center Branding/Badge */}
           <div className="box box-small branding-badge">
@@ -276,29 +279,37 @@ export default function Home() {
           </div>
 
           {/* Full Width Branding Footer of Collage */}
-          <div className="box box-wide reem-banner">
-            <h2>REEM<span>™</span></h2>
+          <div className="box box-wide reem-banner" style={{ padding: '3rem', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '160px' }}>
+            <Image src="/IMG_8456.JPG" alt="REEM Banner Background" fill style={{ objectFit: 'cover' }} />
+            <div style={{ position: 'relative', zIndex: 2 }}>
+              <h2>REEM<span>™</span></h2>
+            </div>
           </div>
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+          <Link href="/products" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>
+            View Our Premium Collection
+          </Link>
         </div>
       </section>
 
-      {/* Values Section */}
       <section className="values-section">
         <div className="container values-grid">
           <div className="value-item">
+            <Award className="value-icon" />
+            <h3>Quality</h3>
+            <p>Untouched by artificial additives, ensuring the truest form of nature and premium standards.</p>
+          </div>
+          <div className="value-item">
             <Leaf className="value-icon" />
-            <h3>Pure</h3>
-            <p>Untouched by artificial additives, ensuring the truest form of nature.</p>
+            <h3>Freshness</h3>
+            <p>Sourced directly from sustainable farms following traditional methods for guaranteed freshness.</p>
           </div>
           <div className="value-item">
             <ShieldCheck className="value-icon" />
-            <h3>Natural</h3>
-            <p>Source directly from sustainable farms following traditional methods.</p>
-          </div>
-          <div className="value-item">
-            <Star className="value-icon" />
-            <h3>Premium</h3>
-            <p>Only the top-tier selection makes it to your table, guaranteed freshness.</p>
+            <h3>Trust</h3>
+            <p>A reliable choice. Only the top-tier selection makes it to your table with our trusted seal.</p>
           </div>
         </div>
       </section>
@@ -308,9 +319,10 @@ export default function Home() {
         <div className="container footer-grid">
           <div className="footer-brand">
             <div className="logo">
-              <Image src="/logo.png" alt="REEM Logo" width={150} height={50} className="logo-img" />
+              <Image src="/logo.png" alt="REEM Logo" width={150} height={50} className="logo-img" style={{ objectFit: 'contain' }} />
             </div>
-            <p>Traditional Middle Eastern luxury delivered to your doorstep.</p>
+            <p style={{ marginTop: '1rem' }}><strong>Importers & Distributors of Premium Dates & Dry Fruits</strong></p>
+            <p>Quality • Freshness • Trust</p>
           </div>
           <div className="footer-links">
             <h4>Explore</h4>
@@ -322,8 +334,8 @@ export default function Home() {
           </div>
           <div className="footer-contact">
             <h4>Contact</h4>
-            <p>Email: hello@reem-pure.com</p>
-            <p>Instagram: @reem_premium</p>
+            <p>Email: reemdatesindia@gmail.com</p>
+            <p>Instagram: <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>@reemdates.india</a></p>
           </div>
         </div>
         <div className="footer-bottom container">
