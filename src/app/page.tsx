@@ -160,15 +160,7 @@ export default function Home() {
             >
               <MessageCircle size={18} /> ORDER NOW
             </Link>
-            <div className="carousel-dots">
-              {slides.map((_, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`dot ${currentSlide === idx ? 'active' : ''}`}
-                />
-              ))}
-            </div>
+
           </div>
         </div>
 

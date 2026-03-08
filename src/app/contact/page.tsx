@@ -1,12 +1,23 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Send, Instagram, Facebook, MessageCircle, Home as HomeIcon, Info, ShoppingBag } from 'lucide-react';
 
 export default function ContactPage() {
+    const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleWhatsAppSend = (e: React.FormEvent) => {
+        e.preventDefault();
+        const whatsappNumber = '918086304231';
+        const text = `Hello Reem Premium!%0A%0A*Name:* ${name}%0A*Message:* ${message}`;
+        window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+    };
+
     return (
-        <main className="contact-main" style={{ paddingTop: '150px', background: 'var(--bg)', minHeight: '100vh', color: '#3b2818' }}>
+        <main className="contact-main" style={{ background: 'var(--bg)', minHeight: '100vh', color: '#3b2818', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '120px 0 60px 0' }}>
             {/* Refined Navbar for inner pages */}
             <header className="navbar">
                 <div className="nav-container">
@@ -51,115 +62,85 @@ export default function ContactPage() {
                 </Link>
             </div>
 
-            <section className="container" style={{ paddingBottom: '6rem' }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 className="section-title text-center" style={{ color: '#3b2818', fontSize: '3.5rem', marginBottom: '1rem', fontFamily: 'var(--font-display)' }}>Get in Touch</h1>
-                    <p style={{ color: '#6d5a48', fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8' }}>
-                        Have questions about our premium dates? We'd love to hear from you. Reach out to us using the form below or through our contact information.
-                    </p>
-                </div>
-
+            <section className="container">
                 <div className="contact-grid">
+                    <div className="contact-registry-card">
+                        <h2 className="contact-section-heading">Contact<br />Information</h2>
 
-                    {/* Contact Info */}
-                    <div style={{ background: '#ffffff', padding: '4rem 3rem', borderRadius: '15px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 10px 40px rgba(0,0,0,0.03)' }}>
-                        <h3 style={{ color: '#3b2818', fontSize: '1.8rem', marginBottom: '2.5rem', fontFamily: 'var(--font-display)', letterSpacing: '1px' }}>Contact Information</h3>
-
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--theme)', marginTop: '0.2rem', background: '#fdfbf7', padding: '12px', borderRadius: '12px', border: '1px solid #e0d5c1' }}><MapPin size={24} /></div>
-                                <div>
-                                    <h4 style={{ color: '#3b2818', margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: 700 }}>Our Location</h4>
-                                    <p style={{ color: '#6d5a48', margin: 0, lineHeight: 1.6 }}>Kozhikode,<br />Kerala, India</p>
-                                </div>
+                        <div className="contact-item">
+                            <div className="contact-icon-box">
+                                <MapPin size={24} />
                             </div>
-
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--theme)', marginTop: '0.2rem', background: '#fdfbf7', padding: '12px', borderRadius: '12px', border: '1px solid #e0d5c1' }}><Phone size={24} /></div>
-                                <div>
-                                    <h4 style={{ color: '#3b2818', margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: 700 }}>Phone Numbers</h4>
-                                    <p style={{ color: '#6d5a48', margin: 0, lineHeight: 1.6 }}>+91 8086 304 231<br />+91 6238 273 976</p>
-                                </div>
-                            </div>
-
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--theme)', background: '#fdfbf7', padding: '12px', borderRadius: '12px', border: '1px solid #e0d5c1' }}><Mail size={24} /></div>
-                                <div>
-                                    <h4 style={{ color: '#3b2818', margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: 700 }}>Email Address</h4>
-                                    <p style={{ color: '#6d5a48', margin: 0 }}>reemdatesindia@gmail.com</p>
-                                </div>
+                            <div className="contact-content-box">
+                                <span className="contact-item-label">Our Location</span>
+                                <span className="contact-item-value">Kozhikode, Kerala, India</span>
                             </div>
                         </div>
 
-                        <div style={{ marginTop: '3.5rem' }}>
-                            <h4 style={{ color: '#3b2818', marginBottom: '1.5rem', fontSize: '1.1rem', fontWeight: 700 }}>Follow Us</h4>
-                            <div style={{ display: 'flex', gap: '1rem' }}>
-                                <a href="https://wa.me/918086304231" target="_blank" rel="noopener noreferrer" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '1px solid #e0d5c1', background: '#ffffff', color: '#3b2818', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }} onMouseOver={(e) => { e.currentTarget.style.borderColor = 'var(--theme)'; e.currentTarget.style.color = 'var(--theme)'; e.currentTarget.style.transform = 'translateY(-3px)' }} onMouseOut={(e) => { e.currentTarget.style.borderColor = '#e0d5c1'; e.currentTarget.style.color = '#3b2818'; e.currentTarget.style.transform = 'translateY(0)' }}>
-                                    <MessageCircle size={20} />
-                                </a>
-                                <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '1px solid #e0d5c1', background: '#ffffff', color: '#3b2818', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease', textDecoration: 'none', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }} onMouseOver={(e) => { e.currentTarget.style.borderColor = 'var(--theme)'; e.currentTarget.style.color = 'var(--theme)'; e.currentTarget.style.transform = 'translateY(-3px)' }} onMouseOut={(e) => { e.currentTarget.style.borderColor = '#e0d5c1'; e.currentTarget.style.color = '#3b2818'; e.currentTarget.style.transform = 'translateY(0)' }}>
-                                    <Instagram size={20} />
-                                </a>
-                                <a href="#" style={{ width: '45px', height: '45px', borderRadius: '50%', border: '1px solid #e0d5c1', background: '#ffffff', color: '#3b2818', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease', boxShadow: '0 4px 10px rgba(0,0,0,0.02)' }} onMouseOver={(e) => { e.currentTarget.style.borderColor = 'var(--theme)'; e.currentTarget.style.color = 'var(--theme)'; e.currentTarget.style.transform = 'translateY(-3px)' }} onMouseOut={(e) => { e.currentTarget.style.borderColor = '#e0d5c1'; e.currentTarget.style.color = '#3b2818'; e.currentTarget.style.transform = 'translateY(0)' }}>
-                                    <Facebook size={20} />
-                                </a>
+                        <div className="contact-item">
+                            <div className="contact-icon-box">
+                                <Phone size={24} />
                             </div>
+                            <div className="contact-content-box">
+                                <span className="contact-item-label">Phone Numbers</span>
+                                <span className="contact-item-value">+91 8086 304 231</span>
+                                <span className="contact-item-value">+91 6238 273 976</span>
+                            </div>
+                        </div>
+
+                        <div className="contact-item">
+                            <div className="contact-icon-box">
+                                <Mail size={24} />
+                            </div>
+                            <div className="contact-content-box">
+                                <span className="contact-item-label">Email Address</span>
+                                <span className="contact-item-value">reemdatesindia@gmail.com</span>
+                            </div>
+                        </div>
+
+                        <h4 className="social-heading">Follow Us</h4>
+                        <div className="social-links-row">
+                            <a href="https://wa.me/918086304231" target="_blank" rel="noopener noreferrer" className="social-circle-btn">
+                                <MessageCircle size={20} />
+                            </a>
+                            <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" className="social-circle-btn">
+                                <Instagram size={20} />
+                            </a>
+                            <a href="#" className="social-circle-btn">
+                                <Facebook size={20} />
+                            </a>
                         </div>
                     </div>
 
-                    {/* WhatsApp CTA */}
-                    <div style={{ background: '#ffffff', padding: '4rem 3rem', borderRadius: '15px', border: '1px solid #d1fad8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxShadow: '0 10px 40px rgba(37, 211, 102, 0.05)' }}>
-                        <h3 style={{ color: '#3b2818', fontSize: '2.5rem', marginBottom: '1rem', fontFamily: 'var(--font-display)' }}>Chat With Us</h3>
-                        <p style={{ color: '#6d5a48', fontSize: '1.1rem', marginBottom: '3rem', maxWidth: '400px', lineHeight: '1.6' }}>
-                            We are available on WhatsApp to answer your questions and assist with your premium date orders instantly.
-                        </p>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '300px' }}>
-                            <Link href="https://wa.me/918086304231?text=Hello%20Reem%20Premium!%20I%27m%20interested%20in%20your%20products." target="_blank" rel="noopener noreferrer"
-                                style={{
-                                    backgroundColor: '#25D366',
-                                    color: 'white',
-                                    padding: '1.25rem 2rem',
-                                    borderRadius: '50px',
-                                    fontSize: '1.1rem',
-                                    fontWeight: 700,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '10px',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 25px rgba(37, 211, 102, 0.3)',
-                                    transition: 'transform 0.3s ease'
-                                }}
-                                onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-                                onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                            >
-                                <MessageCircle size={24} />
-                                Chat with Admin 1
-                            </Link>
-
-                            <Link href="https://wa.me/916238273976?text=Hello%20Reem%20Premium!%20I%27m%20interested%20in%20your%20products." target="_blank" rel="noopener noreferrer"
-                                style={{
-                                    backgroundColor: '#25D366',
-                                    color: 'white',
-                                    padding: '1.25rem 2rem',
-                                    borderRadius: '50px',
-                                    fontSize: '1.1rem',
-                                    fontWeight: 700,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    gap: '10px',
-                                    textDecoration: 'none',
-                                    boxShadow: '0 10px 25px rgba(37, 211, 102, 0.3)',
-                                    transition: 'transform 0.3s ease'
-                                }}
-                                onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-                                onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                            >
-                                <MessageCircle size={24} />
-                                Chat with Admin 2
-                            </Link>
-                        </div>
+                    <div className="contact-message-card">
+                        <h2 className="contact-message-title">Send Message</h2>
+                        <form onSubmit={handleWhatsAppSend}>
+                            <div className="form-group">
+                                <label className="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    className="form-input"
+                                    placeholder="your name"
+                                    required
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="form-label">Message</label>
+                                <textarea
+                                    className="form-textarea"
+                                    placeholder="Write your message here..."
+                                    required
+                                    value={message}
+                                    onChange={(e) => setMessage(e.target.value)}
+                                ></textarea>
+                            </div>
+                            <button type="submit" className="btn-whatsapp-send">
+                                <MessageCircle size={20} />
+                                Send Message via WhatsApp
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>

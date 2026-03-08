@@ -10,10 +10,10 @@
   --text-muted: #6e5e4a;
   --white: #ffffff;
   --black: #000000;
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-serif: var(--font-serif), serif;
+  --font-sans: var(--font-sans), sans-serif;
   --font-script: 'Great Vibes', cursive;
-  --font-display: 'Oswald', sans-serif;
+  --font-display: var(--font-display), serif;
   --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --shadow: 0 10px 30px rgba(61, 38, 23, 0.15);
   --container: 1200px;
@@ -42,7 +42,7 @@ h2,
 h3,
 h4,
 .logo {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
 }
 
@@ -93,7 +93,7 @@ h4,
 }
 
 .logo-text h3 {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-display);
   color: var(--theme);
   font-size: 1.1rem;
   /* Slightly smaller for laptop fit */
@@ -1001,24 +1001,23 @@ h4,
 /* Products Page Luxury Upgrade */
 .product-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4rem;
   max-width: 1400px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .product-details-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(184, 150, 110, 0.1);
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  scrollbar-width: none;
-  animation: fadeInUp 0.8s ease backwards;
+  box-shadow: 0 15px 40px rgba(44, 30, 20, 0.06);
+  border: 1px solid rgba(184, 150, 110, 0.15);
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 @keyframes fadeInUp {
@@ -1065,35 +1064,28 @@ h4,
   animation-delay: 0.8s;
 }
 
-.product-details-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 20px 40px rgba(184, 150, 110, 0.12);
-  border-color: rgba(184, 150, 110, 0.3);
-}
+
 
 .product-image-container {
-  height: 320px;
+  height: 340px;
   position: relative;
-  background: #fdfbf7;
+  background: linear-gradient(to bottom, #fdfbf7, #f7f3ed);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .product-card-img {
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   object-fit: contain !important;
   /* Premium products look better contained */
 }
 
-.product-details-card:hover .product-card-img {
-  transform: scale(1.1) rotate(2deg);
-}
+
 
 .product-info {
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.8rem;
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -1102,78 +1094,76 @@ h4,
 }
 
 .product-title {
-  color: #3b2818;
+  color: #2c1e14;
   font-family: var(--font-serif), serif;
-  /* Using Playfair for more elegance */
-  font-size: 1.8rem;
-  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  margin: 0 0 0.8rem;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
-.product-price {
-  color: var(--theme);
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
 .product-desc {
-  color: #6d5a48;
-  font-size: 1rem;
-  margin: 0 0 2.5rem;
-  line-height: 1.7;
+  color: #6e5e4a;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
   flex: 1;
   font-weight: 400;
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+.product-separator {
+  width: 40px;
+  height: 1.5px;
+  background: var(--theme);
+  margin: 0 auto 1.5rem;
+  opacity: 0.6;
 }
 
 .premium-badge {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.65rem;
+  top: 15px;
+  left: 15px;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
   font-weight: 800;
-  color: var(--theme);
-  letter-spacing: 1.5px;
+  color: #2c1e14;
+  letter-spacing: 2px;
   text-transform: uppercase;
   z-index: 5;
-  border: 1px solid rgba(248, 179, 33, 0.2);
-  backdrop-filter: blur(5px);
+  border: 1px solid rgba(44, 30, 20, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .btn-add-cart {
   width: 100%;
-  padding: 0.8rem;
-  background: #25D366;
-  color: white;
-  border: 1px solid #25D366;
-  border-radius: 6px;
-  font-weight: 700;
+  padding: 1rem;
+  background: var(--theme);
+  color: #2c1e14;
+  border: none;
+  border-radius: 8px;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: auto;
-  font-size: 0.85rem;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+  font-size: 0.8rem;
+  box-shadow: 0 8px 25px rgba(245, 176, 38, 0.25);
 }
 
 .btn-add-cart:hover {
-  background: #20BA5A;
-  border-color: #20BA5A;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  background: #2c1e14;
+  color: var(--theme);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(44, 30, 20, 0.2);
 }
 
 .product-card {
@@ -1182,14 +1172,9 @@ h4,
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-  transition: var(--transition);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.product-card:hover {
-  transform: translateY(-15px);
-  box-shadow: var(--shadow);
-}
 
 .product-img-wrapper {
   width: 100%;
@@ -1408,11 +1393,205 @@ h4,
 /* Contact Page Grid */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 450px));
+  gap: 3rem;
+  justify-content: center;
   align-items: start;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* New Contact Registry Design */
+.contact-registry-card {
+  background: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 40px;
+  box-shadow: 0 40px 100px rgba(44, 30, 20, 0.06);
+  border: 1px solid rgba(184, 150, 110, 0.1);
+  text-align: center;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-section-heading {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: #2c1e14;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-icon-box {
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(184, 150, 110, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme);
+  flex-shrink: 0;
+}
+
+.contact-content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: #2c1e14;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.contact-item-value {
+  color: #6e5e4a;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.social-heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #2c1e14;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.social-links-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-circle-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(184, 150, 110, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2c1e14;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.social-circle-btn:hover {
+  border-color: var(--theme);
+  color: var(--theme);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(184, 150, 110, 0.1);
+}
+
+/* New Contact Message Form */
+.contact-message-card {
+  background: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 40px;
+  box-shadow: 0 40px 100px rgba(44, 30, 20, 0.06);
+  border: 1px solid rgba(184, 150, 110, 0.1);
+  text-align: center;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-message-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: #2c1e14;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: #2c1e14;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: #fdfbf7;
+  border: 1px solid rgba(184, 150, 110, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #3b2818;
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #a8947e;
+  opacity: 0.6;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--theme);
+  background: #ffffff;
+}
+
+.btn-whatsapp-send {
+  background: var(--theme);
+  color: #2c1e14;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp-send:hover {
+  background: #2c1e14;
+  color: var(--theme);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 968px) {
@@ -1425,7 +1604,6 @@ h4,
     position: fixed;
     top: auto !important;
     bottom: 15px;
-    /* Static at bottom */
     left: 0;
     width: 100%;
     display: flex;
@@ -1433,6 +1611,67 @@ h4,
     padding: 0 1rem;
     background: transparent;
     z-index: 3000;
+  }
+
+  /* Product Page Mobile Overrides */
+  .product-page-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+    justify-items: center;
+  }
+
+  .product-details-card {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .product-image-container {
+    height: 280px;
+  }
+
+  .product-info {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .product-title {
+    font-size: 1.7rem;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .contact-main {
+    padding-top: 100px !important;
+    padding-bottom: 120px;
+  }
+
+  .contact-registry-card,
+  .contact-message-card {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+    display: block;
+  }
+
+  .contact-section-heading {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem !important;
+  }
+
+  .btn-add-cart {
+    padding: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .nav-links-wrapper {

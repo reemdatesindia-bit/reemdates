@@ -6,14 +6,14 @@ import { MessageCircle, Home as HomeIcon, Info, ShoppingBag, Phone } from 'lucid
 
 export default function ProductsPage() {
     const dates = [
-        { name: 'Ajwa', price: '$24.99', desc: 'Premium black dates, soft and naturally sweet.', image: '/ajwa.png' },
-        { name: 'Mabroom', price: '$19.99', desc: 'Long, slender dates with a firm chewy texture.', image: '/mabroom.png' },
-        { name: 'Medjool', price: '$29.99', desc: 'The King of Dates. Large, rich, and caramel-like.', image: '/medjool.png' },
-        { name: 'Sukkari', price: '$21.99', desc: 'Crisp, golden dates known for their crunch and sugar.', image: '/sukkari.png' },
-        { name: 'Segai', price: '$18.99', desc: 'Two-toned dates, mildly sweet and firm.', image: '/segai.png' },
-        { name: 'Khalas', price: '$16.99', desc: 'Everyday favorite dates, sticky and butter-caramel flavor.', image: '/khalas.png' },
-        { name: 'Zahidi', price: '$15.99', desc: 'Semi-dry, golden dates with a subtle, nutty finish.', image: '/zahidi.png' },
-        { name: 'Bam Dates', price: '$22.99', desc: 'Also known as Mazafati. Dark, soft, and chocolatey.', image: '/bam.png' },
+        { name: 'Ajwa', desc: 'Premium black dates, soft and naturally sweet.', image: '/ajwa.png' },
+        { name: 'Mabroom', desc: 'Long, slender dates with a firm chewy texture.', image: '/mabroom.png' },
+        { name: 'Medjool', desc: 'The King of Dates. Large, rich, and caramel-like.', image: '/medjool.png' },
+        { name: 'Sukkari', desc: 'Crisp, golden dates known for their crunch and sugar.', image: '/sukkari.png' },
+        { name: 'Segai', desc: 'Two-toned dates, mildly sweet and firm.', image: '/segai.png' },
+        { name: 'Khalas', desc: 'Everyday favorite dates, sticky and butter-caramel flavor.', image: '/khalas.png' },
+        { name: 'Zahidi', desc: 'Semi-dry, golden dates with a subtle, nutty finish.', image: '/zahidi.png' },
+        { name: 'Bam Dates', desc: 'Also known as Mazafati. Dark, soft, and chocolatey.', image: '/bam.png' },
     ];
 
     return (
@@ -107,7 +107,7 @@ export default function ProductsPage() {
                             </div>
                             <div className="product-info">
                                 <h3 className="product-title">{date.name}</h3>
-                                <span className="product-price">{date.price}</span>
+                                <div className="product-separator"></div>
                                 <p className="product-desc">{date.desc}</p>
                                 <a
                                     href={`https://wa.me/918086304231?text=${encodeURIComponent(`Hello Reem Premium! I'm interested in ordering ${date.name}.`)}`}
