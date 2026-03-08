@@ -134,7 +134,7 @@ export default function Home() {
         {/* Sidebar */}
         <div className="side-info">
           <div className="social-icons">
-            <a href="https://wa.me/918086304231" target="_blank" rel="noopener noreferrer" className="social-icon"><MessageCircle size={16} /></a>
+            <a href="https://wa.me/916238273976" target="_blank" rel="noopener noreferrer" className="social-icon"><MessageCircle size={16} /></a>
             <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" className="social-icon"><Instagram size={16} /></a>
             <a href="#" className="social-icon"><Facebook size={16} /></a>
           </div>
@@ -152,7 +152,7 @@ export default function Home() {
           <p className="desc">{slides[currentSlide].desc}</p>
           <div className="hero-actions">
             <Link
-              href="https://wa.me/918086304231?text=Hello%20Reem%20Premium!%20I'm%20interested%20in%20ordering%20dates."
+              href="https://wa.me/916238273976?text=Hello%20Reem%20Premium!%20I'm%20interested%20in%20ordering%20dates."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary btn-whatsapp-hero"

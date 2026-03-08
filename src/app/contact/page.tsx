@@ -11,7 +11,7 @@ export default function ContactPage() {
 
     const handleWhatsAppSend = (e: React.FormEvent) => {
         e.preventDefault();
-        const whatsappNumber = '918086304231';
+        const whatsappNumber = '916238273976';
         const text = `Hello Reem Premium!%0A%0A*Name:* ${name}%0A*Message:* ${message}`;
         window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
     };
@@ -83,8 +83,8 @@ export default function ContactPage() {
                             </div>
                             <div className="contact-content-box">
                                 <span className="contact-item-label">Phone Numbers</span>
-                                <span className="contact-item-value">+91 8086 304 231</span>
                                 <span className="contact-item-value">+91 6238 273 976</span>
+                                <span className="contact-item-value">+91 8086 304 231</span>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@ export default function ContactPage() {
 
                         <h4 className="social-heading">Follow Us</h4>
                         <div className="social-links-row">
-                            <a href="https://wa.me/918086304231" target="_blank" rel="noopener noreferrer" className="social-circle-btn">
+                            <a href="https://wa.me/916238273976" target="_blank" rel="noopener noreferrer" className="social-circle-btn">
                                 <MessageCircle size={20} />
                             </a>
                             <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" className="social-circle-btn">
