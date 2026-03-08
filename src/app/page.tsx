@@ -115,7 +115,15 @@ export default function Home() {
           <h1 key={currentSlide}>{slides[currentSlide].title}</h1>
           <p className="desc">{slides[currentSlide].desc}</p>
           <div className="hero-actions">
-            <button className="btn-primary">ORDER NOW</button>
+            <Link
+              href="https://wa.me/918086304231?text=Hello%20Reem%20Premium!%20I'm%20interested%20in%20ordering%20dates."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary btn-whatsapp-hero"
+              style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
+              <MessageCircle size={18} /> ORDER NOW
+            </Link>
             <div className="carousel-dots">
               {slides.map((_, idx) => (
                 <div

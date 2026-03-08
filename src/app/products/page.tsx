@@ -2,18 +2,18 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShoppingCart } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 export default function ProductsPage() {
     const dates = [
-        { name: 'Ajwa', price: '$24.99', desc: 'Premium black dates, soft and naturally sweet.', image: '/dates_closeup.png' },
-        { name: 'Mabroom', price: '$19.99', desc: 'Long, slender dates with a firm chewy texture.', image: '/dates_closeup.png' },
-        { name: 'Medjool', price: '$29.99', desc: 'The King of Dates. Large, rich, and caramel-like.', image: '/dates_closeup.png' },
-        { name: 'Sukkari', price: '$21.99', desc: 'Crisp, golden dates known for their crunch and sugar.', image: '/dates_closeup.png' },
-        { name: 'Segai', price: '$18.99', desc: 'Two-toned dates, mildly sweet and firm.', image: '/dates_closeup.png' },
-        { name: 'Khalas', price: '$16.99', desc: 'Everyday favorite dates, sticky and butter-caramel flavor.', image: '/dates_closeup.png' },
-        { name: 'Zahidi', price: '$15.99', desc: 'Semi-dry, golden dates with a subtle, nutty finish.', image: '/dates_closeup.png' },
-        { name: 'Bam Dates', price: '$22.99', desc: 'Also known as Mazafati. Dark, soft, and chocolatey.', image: '/dates_closeup.png' },
+        { name: 'Ajwa', price: '$24.99', desc: 'Premium black dates, soft and naturally sweet.', image: '/ajwa.png' },
+        { name: 'Mabroom', price: '$19.99', desc: 'Long, slender dates with a firm chewy texture.', image: '/mabroom.png' },
+        { name: 'Medjool', price: '$29.99', desc: 'The King of Dates. Large, rich, and caramel-like.', image: '/medjool.png' },
+        { name: 'Sukkari', price: '$21.99', desc: 'Crisp, golden dates known for their crunch and sugar.', image: '/sukkari.png' },
+        { name: 'Segai', price: '$18.99', desc: 'Two-toned dates, mildly sweet and firm.', image: '/segai.png' },
+        { name: 'Khalas', price: '$16.99', desc: 'Everyday favorite dates, sticky and butter-caramel flavor.', image: '/khalas.png' },
+        { name: 'Zahidi', price: '$15.99', desc: 'Semi-dry, golden dates with a subtle, nutty finish.', image: '/zahidi.png' },
+        { name: 'Bam Dates', price: '$22.99', desc: 'Also known as Mazafati. Dark, soft, and chocolatey.', image: '/bam.png' },
     ];
 
     return (
@@ -50,38 +50,60 @@ export default function ProductsPage() {
                 </Link>
             </div>
 
-            <section className="container" style={{ paddingBottom: '4rem' }}>
-                <h1 className="section-title text-center" style={{ color: '#3b2818', fontSize: '3rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem' }}>Our Premium Collection</h1>
-                <p className="text-center" style={{ color: '#6d5a48', maxWidth: '650px', margin: '0 auto 4rem', fontSize: '1.15rem', lineHeight: '1.8' }}>
-                    Explore our exclusive, hand-picked selection of the finest dates sourced directly from the best farms in the Middle East. Experience true luxury in every bite.
-                </p>
+            <section className="container" style={{ paddingBottom: '8rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
+                    <h1 style={{
+                        color: '#3b2818',
+                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                        fontFamily: 'var(--font-serif)',
+                        fontWeight: 700,
+                        marginBottom: '1.5rem',
+                        letterSpacing: '-1px'
+                    }}>
+                        Our Premium Collection
+                    </h1>
+                    <div style={{
+                        width: '60px',
+                        height: '2px',
+                        background: 'var(--theme)',
+                        margin: '0 auto 2rem'
+                    }}></div>
+                    <p style={{
+                        color: '#6d5a48',
+                        maxWidth: '700px',
+                        margin: '0 auto',
+                        fontSize: '1.15rem',
+                        lineHeight: '1.8',
+                        opacity: 0.9
+                    }}>
+                        Experience the gold standard of organic luxury. Our hand-picked selection represents the finest dates from across the Middle East, delivered with purity and trust.
+                    </p>
+                </div>
 
                 <div className="product-page-grid">
                     {dates.map((date, idx) => (
                         <div key={idx} className="product-details-card">
+                            <div className="premium-badge">Premium Selection</div>
                             <div className="product-image-container">
                                 <Image
                                     src={date.image}
                                     alt={date.name}
                                     fill
-                                    style={{ objectFit: 'cover' }}
+                                    style={{ objectFit: 'contain' }}
                                     className="product-card-img"
                                 />
                             </div>
                             <div className="product-info">
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                    <h3 className="product-title">{date.name}</h3>
-                                    <span className="product-price">{date.price}</span>
-                                </div>
+                                <h3 className="product-title">{date.name}</h3>
+                                <span className="product-price">{date.price}</span>
                                 <p className="product-desc">{date.desc}</p>
                                 <a
                                     href={`https://wa.me/918086304231?text=${encodeURIComponent(`Hello Reem Premium! I'm interested in ordering ${date.name}.`)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn-add-cart"
-                                    style={{ textDecoration: 'none' }}
                                 >
-                                    <ShoppingCart size={16} /> ADD TO CART
+                                    <MessageCircle size={16} /> ORDER ON WHATSAPP
                                 </a>
                             </div>
                         </div>

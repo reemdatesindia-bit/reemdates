@@ -970,11 +970,11 @@ h4,
   /* Nice subtle zoom on hover */
 }
 
-/* Products Page specific styles */
+/* Products Page Luxury Upgrade */
 .product-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 4rem;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -982,80 +982,149 @@ h4,
 .product-details-card {
   position: relative;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  border: 1px solid rgba(184, 150, 110, 0.1);
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  scrollbar-width: none;
+  animation: fadeInUp 0.8s ease backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-details-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.product-details-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.product-details-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.product-details-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.product-details-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.product-details-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.product-details-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.product-details-card:nth-child(8) {
+  animation-delay: 0.8s;
 }
 
 .product-details-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(184, 150, 110, 0.12);
+  border-color: rgba(184, 150, 110, 0.3);
 }
 
 .product-image-container {
-  height: 250px;
+  height: 320px;
   position: relative;
   background: #fdfbf7;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.01);
+  padding: 1rem;
 }
 
 .product-card-img {
-  filter: none;
-  transition: transform 0.6s ease;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: contain !important;
+  /* Premium products look better contained */
 }
 
 .product-details-card:hover .product-card-img {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(2deg);
 }
 
 .product-info {
-  padding: 1.5rem 1.5rem;
+  padding: 2.5rem 2rem;
   background: #ffffff;
   display: flex;
   flex-direction: column;
   flex: 1;
+  text-align: center;
 }
 
 .product-title {
   color: #3b2818;
-  font-family: var(--font-display), sans-serif;
-  font-size: 1.5rem;
-  margin: 0;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-family: var(--font-serif), serif;
+  /* Using Playfair for more elegance */
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .product-price {
-  color: #3b2818;
-  font-weight: 800;
-  font-size: 1.25rem;
-  font-family: var(--font-sans), sans-serif;
+  color: var(--theme);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  display: block;
 }
 
 .product-desc {
-  color: #716254;
-  font-size: 0.9rem;
-  margin: 1rem 0 1.5rem;
-  line-height: 1.6;
+  color: #6d5a48;
+  font-size: 1rem;
+  margin: 0 0 2.5rem;
+  line-height: 1.7;
   flex: 1;
   font-weight: 400;
+  opacity: 0.8;
+}
+
+.premium-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--theme);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  z-index: 5;
+  border: 1px solid rgba(248, 179, 33, 0.2);
+  backdrop-filter: blur(5px);
 }
 
 .btn-add-cart {
   width: 100%;
   padding: 0.8rem;
-  background: transparent;
-  color: #3b2818;
-  border: 1px solid #e0d5c1;
+  background: #25D366;
+  color: white;
+  border: 1px solid #25D366;
   border-radius: 6px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1068,14 +1137,15 @@ h4,
   transition: all 0.3s ease;
   margin-top: auto;
   font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
 }
 
 .btn-add-cart:hover {
-  background: #fdfaf6;
-  border-color: #d1bfae;
-  color: #3b2818;
+  background: #20BA5A;
+  border-color: #20BA5A;
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
 }
 
 .product-card {
@@ -1393,9 +1463,9 @@ h4,
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 40px 10px 90px;
+    padding: 60px 10px 100px;
     /* Space for the absolute bottom navbar */
-    height: auto;
+    height: 100svh;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -1404,6 +1474,7 @@ h4,
     background: var(--bg-dark);
     /* Keep outer dark */
     position: relative;
+    overflow: hidden;
   }
 
 
@@ -1418,27 +1489,30 @@ h4,
 
   .hero-center {
     width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    /* Minimized under gap */
-    min-height: 260px;
+    margin: 1.5rem 0;
+    min-height: 300px;
+    max-height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .hero-left h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    line-height: 1.1;
   }
 
   .hero-left .subtitle {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   .hero-left .desc {
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 1rem;
     min-height: auto;
-    max-width: 90%;
+    max-width: 85%;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   .hero-actions {
@@ -1458,8 +1532,23 @@ h4,
     z-index: 10;
   }
 
+  .btn-whatsapp-hero {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4) !important;
+  }
+
+  .btn-whatsapp-hero:hover {
+    background-color: #20BA5A !important;
+    border-color: #20BA5A !important;
+    transform: translateY(-2px);
+  }
+
   .pouch-img {
-    max-width: 350px;
+    max-width: 80%;
+    max-height: 280px;
+    object-fit: contain;
   }
 
   .circle-bg {
@@ -1475,20 +1564,20 @@ h4,
 
 @media (max-width: 480px) {
   .hero-left h1 {
-    font-size: 2.2rem;
-    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
     line-height: 1.1;
   }
 
   .hero-left .subtitle {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .hero-left .desc {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     line-height: 1.3;
-    margin-bottom: 1.5rem;
-    max-width: 90%;
+    margin-bottom: 1rem;
+    max-width: 85%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1502,7 +1591,9 @@ h4,
   }
 
   .pouch-img {
-    max-width: 280px;
+    max-width: 75%;
+    max-height: 240px;
+    object-fit: contain;
   }
 
   .circle-bg {
@@ -1511,7 +1602,7 @@ h4,
   }
 
   .section-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .nav-links {
@@ -1525,8 +1616,8 @@ h4,
 
 @media (max-width: 320px) {
   .hero {
-    padding-top: 50px;
-    gap: 1rem;
+    padding-top: 80px;
+    gap: 0.5rem;
   }
 
   .hero-left h1 {
