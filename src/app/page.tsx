@@ -225,8 +225,8 @@ export default function Home() {
           <div className="story-image">
             <div className="parallax-inner" style={{ position: 'relative', width: '100%', height: '600px', borderRadius: '15px', overflow: 'hidden' }}>
               <Image
-                src="/photo_2026-03-06_11-04-25.jpg"
-                alt="Reem - The desert gazelle"
+                src="/premium_dry_fruits_studio.png"
+                alt="Premium Dates and Dry Fruits Selection"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="parallax"
@@ -279,7 +279,9 @@ export default function Home() {
             <div className="badge-content">
               <h3>REEM<sup>®</sup></h3>
               <p>HIGH QUALITY - PURE GOODNESS</p>
-              <div className="circle-placeholder"></div>
+              <div className="circle-image-wrapper">
+                <Image src="/photo_2026-03-06_11-04-25.jpg" alt="Reem Desert Gazelle" fill style={{ objectFit: 'cover' }} />
+              </div>
               <span className="source-tag">100% NATURAL</span>
             </div>
           </div>
@@ -323,59 +325,108 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
           <Link href="/products" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>
             View Our Premium Collection
           </Link>
         </div>
       </section>
 
-      <section className="values-section">
-        <div className="container values-grid">
-          <div className="value-item">
-            <Award className="value-icon" />
-            <h3>Quality</h3>
-            <p>Untouched by artificial additives, ensuring the truest form of nature and premium standards.</p>
+      {/* Bold Highlights Section */}
+      <section className="stats-section">
+        <div className="stats-grid">
+          <div className="stat-card dark">
+            <h2 className="stat-number">100%</h2>
+            <p className="stat-label">Pure Natural & Organic</p>
           </div>
-          <div className="value-item">
-            <Leaf className="value-icon" />
-            <h3>Freshness</h3>
-            <p>Sourced directly from sustainable farms following traditional methods for guaranteed freshness.</p>
+          <div className="stat-card">
+            <h2 className="stat-number">25+</h2>
+            <p className="stat-label">Premium Date Varieties</p>
           </div>
-          <div className="value-item">
-            <ShieldCheck className="value-icon" />
-            <h3>Trust</h3>
-            <p>A reliable choice. Only the top-tier selection makes it to your table with our trusted seal.</p>
+          <div className="stat-card">
+            <h2 className="stat-number">5.0</h2>
+            <p className="stat-label">Elite Quality Rating</p>
+          </div>
+          <div className="stat-card">
+            <h2 className="stat-number">1k+</h2>
+            <p className="stat-label">Premium Customers</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Dry Fruits Collection */}
+      <section className="dry-fruits-section">
+        <div className="container" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <h2 className="section-title">EXCLUSIVE <br /><span>DRY FRUITS SELECTION</span></h2>
+          <p style={{ color: '#6e5e4a', maxWidth: '700px', margin: '1.5rem auto 0', fontSize: '1.1rem', lineHeight: '1.8' }}>
+            Beyond our world-class dates, we source the finest nuts and dried delicacies from across the globe, selected for their superior size, crunch, and nutritional profile.
+          </p>
+        </div>
+
+        <div className="dry-fruits-grid">
+          <div className="dry-fruit-card">
+            <Image src="/almonds_bowl_luxury_1772983313733.png" alt="Premium Almonds" fill style={{ objectFit: 'cover' }} />
+            <div className="dry-fruit-overlay"></div>
+            <div className="dry-fruit-info">
+              <h3 className="dry-fruit-title">Almonds</h3>
+              <p className="dry-fruit-desc">California King Selection • Hand-Sorted</p>
+            </div>
+          </div>
+
+          <div className="dry-fruit-card">
+            <Image src="/pistachios_bowl_luxury_1772983341713.png" alt="Premium Pistachios" fill style={{ objectFit: 'cover' }} />
+            <div className="dry-fruit-overlay"></div>
+            <div className="dry-fruit-info">
+              <h3 className="dry-fruit-title">Pistachios</h3>
+              <p className="dry-fruit-desc">Saffron Roasted • Shell-On Perfection</p>
+            </div>
+          </div>
+
+          <div className="dry-fruit-card">
+            <Image src="/cashews_bowl_luxury_1772983364622.png" alt="Premium Cashews" fill style={{ objectFit: 'cover' }} />
+            <div className="dry-fruit-overlay"></div>
+            <div className="dry-fruit-info">
+              <h3 className="dry-fruit-title">Cashews</h3>
+              <p className="dry-fruit-desc">Whole Jumbo • Gently Roasted W240</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="footer">
-        <div className="container footer-grid">
-          <div className="footer-brand">
-            <div className="logo">
-              <Image src="/logo.png" alt="REEM Logo" width={150} height={50} className="logo-img" style={{ objectFit: 'contain' }} />
+      <footer id="footer" className="footer" style={{ padding: '6rem 2rem 3rem' }}>
+        <div className="container footer-grid" style={{ alignItems: 'flex-start' }}>
+          <div className="footer-brand" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <div className="logo" style={{ marginBottom: '1.5rem', width: '200px' }}>
+              <Image src="/logo.png" alt="REEM Logo" width={200} height={80} className="logo-img" style={{ objectFit: 'contain' }} />
             </div>
-            <p style={{ marginTop: '1rem' }}><strong>Importers & Distributors of Premium Dates & Dry Fruits</strong></p>
-            <p>Quality • Freshness • Trust</p>
+            <p style={{ fontSize: '0.95rem', maxWidth: '350px', lineHeight: '1.8', color: '#6e5e4a', marginBottom: '1.5rem' }}>
+              <strong style={{ color: '#2c1e14' }}>Importers & Distributors of Premium Dates & Dry Fruits</strong><br />
+              Bringing you the purity, elegance, and natural beauty of the desert gazelle in every bite.
+            </p>
+            <div className="social-links-row">
+              <a href="https://wa.me/916238273976" target="_blank" rel="noopener noreferrer" className="social-circle-btn" style={{ width: '35px', height: '35px' }}><MessageCircle size={16} /></a>
+              <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" className="social-circle-btn" style={{ width: '35px', height: '35px' }}><Instagram size={16} /></a>
+              <a href="#" className="social-circle-btn" style={{ width: '35px', height: '35px' }}><Facebook size={16} /></a>
+            </div>
           </div>
-          <div className="footer-links">
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="#">Shop Dates</a></li>
-              <li><a href="#">Shop Nuts</a></li>
-              <li><a href="#">Gift Boxes</a></li>
+          <div className="footer-links" style={{ paddingTop: '1.5rem' }}>
+            <h4 style={{ color: '#2c1e14', marginBottom: '1.5rem', fontSize: '1.1rem', letterSpacing: '2px' }}>EXPLORE</h4>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
+              <li style={{ marginBottom: '1rem' }}><Link href="/products" className="footer-nav-link" style={{ textDecoration: 'none', color: '#6e5e4a', fontSize: '0.95rem' }}>Premium Dates</Link></li>
+              <li style={{ marginBottom: '1rem' }}><Link href="/products" className="footer-nav-link" style={{ textDecoration: 'none', color: '#6e5e4a', fontSize: '0.95rem' }}>Roasted Nuts</Link></li>
+              <li style={{ marginBottom: '1rem' }}><Link href="/products" className="footer-nav-link" style={{ textDecoration: 'none', color: '#6e5e4a', fontSize: '0.95rem' }}>Luxury Gift Boxes</Link></li>
             </ul>
           </div>
-          <div className="footer-contact">
-            <h4>Contact</h4>
-            <p>Email: reemdatesindia@gmail.com</p>
-            <p>Instagram: <a href="https://www.instagram.com/reemdates.india/?hl=en" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>@reemdates.india</a></p>
+          <div className="footer-contact" style={{ paddingTop: '1.5rem' }}>
+            <h4 style={{ color: '#2c1e14', marginBottom: '1.5rem', fontSize: '1.1rem', letterSpacing: '2px' }}>CONTACT</h4>
+            <p style={{ color: '#6e5e4a', marginBottom: '1rem', fontSize: '0.95rem' }}>reemdatesindia@gmail.com</p>
+            <p style={{ color: '#6e5e4a', marginBottom: '1rem', fontSize: '0.95rem' }}>Kozhikode, Kerala, India</p>
+            <p style={{ color: '#6e5e4a', fontSize: '0.95rem' }}>+91 6238 273 976</p>
           </div>
         </div>
-        <div className="footer-bottom container">
-          <p>&copy; 2024 Reem. All Rights Reserved.</p>
+        <div className="footer-bottom container" style={{ marginTop: '4rem', borderTop: '1px solid rgba(184, 150, 110, 0.1)', paddingTop: '2.5rem' }}>
+          <p style={{ color: '#a8947e', fontSize: '0.85rem' }}>&copy; 2024 REEM PREMIUM DATES & DRY FRUITS. ALL RIGHTS RESERVED.</p>
         </div>
       </footer>
     </main>

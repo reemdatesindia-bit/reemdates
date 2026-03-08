@@ -216,7 +216,7 @@ h4,
 
 /* Product Collage Section */
 .product-showcase {
-  padding: 10rem 2rem;
+  padding: 5rem 2rem;
   background-color: var(--bg);
   /* Neutral cream instead of light blue */
 }
@@ -309,12 +309,15 @@ h4,
   margin-bottom: 1rem;
 }
 
-.circle-placeholder {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.2);
+.circle-image-wrapper {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  margin: 0 auto 1rem;
+  margin: 0.5rem auto 1.5rem;
+  overflow: hidden;
+  position: relative;
+  border: 3px solid var(--theme);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .source-tag {
@@ -799,7 +802,7 @@ h4,
 
 /* Existing Sections Refined */
 .story-section {
-  padding: 10rem 2rem;
+  padding: 5rem 2rem;
   background: var(--bg);
 }
 
@@ -1262,9 +1265,9 @@ h4,
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 5rem;
-  margin-bottom: 6rem;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
 }
 
 .footer-brand .logo {
@@ -1479,7 +1482,6 @@ h4,
 
 .social-links-row {
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
@@ -1594,12 +1596,177 @@ h4,
   transform: translateY(-2px);
 }
 
+/* Luxury Stats Section */
+.stats-section {
+  padding: 3rem 0;
+  background: var(--bg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.stat-card {
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(184, 150, 110, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 280px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(44, 30, 20, 0.02);
+}
+
+.stat-card.dark {
+  background: #2c1e14;
+  border: none;
+  box-shadow: 0 20px 50px rgba(44, 30, 20, 0.2);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(44, 30, 20, 0.05);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: #2c1e14;
+  letter-spacing: -2px;
+}
+
+.stat-card.dark .stat-number {
+  color: var(--theme);
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #6e5e4a;
+  font-weight: 700;
+}
+
+.stat-card.dark .stat-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 @media (max-width: 968px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
+  .stat-card {
+    min-height: 220px;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Dry Fruits Collection Section */
+.dry-fruits-section {
+  padding: 4rem 0;
+  background: #fdfbf7;
+}
+
+.dry-fruits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.dry-fruit-card {
+  position: relative;
+  height: 450px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(44, 30, 20, 0.05);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.dry-fruit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(44, 30, 20, 0.12);
+}
+
+.dry-fruit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(44, 30, 20, 0) 40%, rgba(44, 30, 20, 0.7) 100%);
+  z-index: 1;
+}
+
+.dry-fruit-info {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+.dry-fruit-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--theme);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.dry-fruit-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+@media (max-width: 968px) {
+  .dry-fruits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .dry-fruits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dry-fruit-card {
+    height: 380px;
+  }
+}
+
+@media (max-width: 968px) {
   .navbar {
     position: fixed;
     top: auto !important;
