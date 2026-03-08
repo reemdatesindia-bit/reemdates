@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Send, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Instagram, Facebook, MessageCircle, Home as HomeIcon, Info, ShoppingBag } from 'lucide-react';
 
 export default function ContactPage() {
     return (
@@ -17,10 +17,22 @@ export default function ContactPage() {
                     </div>
                     <div className="nav-links-wrapper">
                         <nav className="nav-links">
-                            <Link href="/" className="nav-link">Home</Link>
-                            <Link href="/#story" className="nav-link">About</Link>
-                            <Link href="/products" className="nav-link">Products</Link>
-                            <Link href="/contact" className="nav-link active">Contact</Link>
+                            <Link href="/" className="nav-link">
+                                <HomeIcon size={20} className="nav-icon" />
+                                <span>Home</span>
+                            </Link>
+                            <Link href="/#story" className="nav-link">
+                                <Info size={20} className="nav-icon" />
+                                <span>About</span>
+                            </Link>
+                            <Link href="/products" className="nav-link">
+                                <ShoppingBag size={20} className="nav-icon" />
+                                <span>Products</span>
+                            </Link>
+                            <Link href="/contact" className="nav-link active">
+                                <Phone size={20} className="nav-icon" />
+                                <span>Contact</span>
+                            </Link>
                         </nav>
                     </div>
                     <div className="nav-actions-placeholder"></div>

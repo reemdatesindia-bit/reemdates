@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Leaf, ShieldCheck, Star, ShoppingCart, Heart, Award, Flower, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Leaf, ShieldCheck, Star, ShoppingCart, Heart, Award, Flower, Instagram, Facebook, MessageCircle, Home as HomeIcon, Info, ShoppingBag, Phone } from 'lucide-react';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeNav, setActiveNav] = useState('home');
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const scrollObserverRef = useRef<IntersectionObserver | null>(null);
 
   const slides = [
     {
@@ -45,8 +47,30 @@ export default function Home() {
     const elements = document.querySelectorAll('.fade-in, section, .product-card');
     elements.forEach(el => observerRef.current?.observe(el));
 
+    // Scroll active tracking with better accuracy
+    scrollObserverRef.current = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'hero') {
+            setActiveNav('home');
+          } else if (entry.target.id === 'story') {
+            setActiveNav('about');
+          } else if (entry.target.id === 'products-showcase') {
+            setActiveNav('home'); // or handle products if needed
+          }
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '-80px 0px -20% 0px'
+    });
+
+    const sections = document.querySelectorAll('#hero, #story, #products-showcase');
+    sections.forEach(sec => scrollObserverRef.current?.observe(sec));
+
     return () => {
       observerRef.current?.disconnect();
+      scrollObserverRef.current?.disconnect();
     };
   }, []);
 
@@ -62,10 +86,22 @@ export default function Home() {
           </div>
           <div className="nav-links-wrapper">
             <nav className="nav-links">
-              <Link href="/" className="active">Home</Link>
-              <Link href="#story">About</Link>
-              <Link href="/products">Products</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/" className={`nav-link ${activeNav === 'home' ? 'active' : ''}`} onClick={() => setActiveNav('home')}>
+                <HomeIcon size={20} className="nav-icon" />
+                <span>Home</span>
+              </Link>
+              <Link href="#story" className={`nav-link ${activeNav === 'about' ? 'active' : ''}`} onClick={() => setActiveNav('about')}>
+                <Info size={20} className="nav-icon" />
+                <span>About</span>
+              </Link>
+              <Link href="/products" className="nav-link">
+                <ShoppingBag size={20} className="nav-icon" />
+                <span>Products</span>
+              </Link>
+              <Link href="/contact" className="nav-link">
+                <Phone size={20} className="nav-icon" />
+                <span>Contact</span>
+              </Link>
             </nav>
           </div>
           <div className="nav-actions-placeholder"></div>
